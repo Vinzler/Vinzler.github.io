@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet</title>
+    <style>
+        body {
+            background-color: #FFEBF0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {  
+            margin-top: 20px;
+        }
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; align-items: center;">
+            <h3>I am so excited to meet you on tomorrow</h3>
+        </div>
+=        <div>
+            <img src="./images_for_website/jerry_duck.gif" alt=""/>
+        </div>
+        <div>
+            <img src="images_for_website/dog_happy.gif" alt=""/>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <h3>See you super soon Munmun :)</h3>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelectorAll('button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            window.location.href = `page4.html`;
+        });
+    });
+</script>

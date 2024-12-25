@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page3</title>
+    <style>
+        body {
+            background-color: #FFEBF0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {  
+            margin-top: 20px;
+        }
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; align-items: center;">
+            <h3>Well, I'll give you 2 hints xD</h3>
+        </div>
+        <h1><i>1st....</i></h1>
+        <div>
+            <img src="./images_for_website/panda_1.jpg" alt=""/>
+            <h3>Her name starts with <h2>"M"</h2></h3>
+        </div>
+        <h1><i>2nd....</i></h1>
+        <div>
+            <img src="images_for_website/ajab_si.gif" alt=""/>
+            <h3>When you look her in the eyes, your reaction would be</h3>
+        </div>
+        <div class="buttons">
+            <button>
+                <img src="./images_for_website/paw_1152756.png" style="width: 20px; height: 20px; border: none; vertical-align: middle; margin-right: 8px;"/>
+                i think i know her xD...
+            </button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelectorAll('button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            window.location.href = `page4.html`;
+        });
+    });
+</script>

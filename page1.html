@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page1</title>
+    <style>
+        body {
+            background-color: #FFEBF0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #FF69B4;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                width: 100%;
+            }
+            img {
+                margin: 0 auto;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./images_for_website/cat_studying_laptop.gif" alt="Cute Cat" style="margin-bottom: 20px;">
+            <h3>So there are <i>4,058,360,359</i> females in the world</h3>
+        </div>
+        <h1><i>BUT....</i></h1>
+        <div>
+            <img src="./images_for_website/herry_shy.gif" alt=""/>
+            <h3>But there's this one girl who is SUPER SUPER special</h3>
+        </div>
+        <div class="buttons">
+            <button>
+                <img src="./images_for_website/paw_1152756.png" style="width: 20px; height: 20px; border: none; vertical-align: middle; margin-right: 8px;"/>
+                well... who is she ?
+            </button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelectorAll('button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            window.location.href = `page2.html`;
+        });
+    });
+</script>

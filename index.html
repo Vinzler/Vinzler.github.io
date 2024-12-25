@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Munmun</title>
+    <style>
+        body {
+            background-color: #FFEBF0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./images_for_website/cat_hi.gif" alt="Cute Cat">
+        <h2>Hi Munmun :)</h2>
+        <h4><i>So there's something that I wanted to tell you</i></h4>
+        <div class="buttons">
+            <button>
+                <img src="./images_for_website/paw_1152756.png" style="width: 20px; height: 20px; border: none; vertical-align: middle; margin-right: 8px;"/>
+                okay tell me :)
+            </button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelectorAll('button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            window.location.href = `page${index + 1}.html`;
+        });
+    });
+</script>
