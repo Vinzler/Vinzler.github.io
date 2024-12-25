@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page2</title>
+    <style>
+        body {
+            background-color: #FFEBF0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+        }
+        .text-box {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #FF69B4;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            img {
+                width: 100%;
+                margin: 5px 0;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+        .grid img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h2>So there were a few candidates ...</h2>
+    <div class="container">
+        <div class="image-container" id="imageContainer">
+            <img src="./images_for_website/image1.jpg" alt="Image 1">
+            <img src="./images_for_website/image2.jpg" alt="Image 2">
+        </div>
+        <div class="text-box" id="textBox">Text for Image 1 and Image 2</div>
+        <div class="buttons">
+            <button id="prevButton" style="display: none;">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
+    </div>
+    <script>
+        const images = [
+            './images_for_website/angelina_jolie.jpg',
+            './images_for_website/jerry_no.gif',
+            './images_for_website/shraddha_kappor.jpg',
+            './images_for_website/tom_no.gif',
+            './images_for_website/image5.jpg',
+            './images_for_website/image6.jpg'
+        ];
+        const texts = [
+            'So there was Angeline Jolie ... well she looks hot but she aint that special ',
+            'Next there was Sharddha Kappor ... she is cute but not the one',
+            'Text for Image 5 and Image 6'
+        ];
+        let currentIndex = 0;
+
+        function updateImages() {
+            const imageContainer = document.getElementById('imageContainer');
+            const textBox = document.getElementById('textBox');
+            const prevButton = document.getElementById('prevButton');
+            if (currentIndex === 4) {
+                imageContainer.classList.add('grid');
+                imageContainer.innerHTML = `
+                    <img src="images_for_website/dua_lipa.jpg" alt="Image 5">
+                    <img src="images_for_website/megan_fox.jpg" alt="Image 6">
+                    <img src="images_for_website/deepika_padukone.jpg" alt="Image 7">
+                    <img src="images_for_website/ananya_pandey.jpg" alt="Image 8">
+                    <img src="images_for_website/random_2.jpg" alt="Image 1">
+                    <img src="images_for_website/random_1.jpg" alt="Image 2">
+                `;
+                textBox.textContent = 'No, they are all nice, but none of them are special';
+            } else {
+                imageContainer.classList.remove('grid');
+                imageContainer.innerHTML = `
+                    <img src="${images[currentIndex]}" alt="Image ${currentIndex + 1}">
+                    <img src="${images[(currentIndex + 1) % images.length]}" alt="Image ${currentIndex + 2}">
+                `;
+                textBox.textContent = texts[Math.floor(currentIndex / 2)];
+            }
+            prevButton.style.display = currentIndex === 0 ? 'none' : 'inline-block';
+        }
+
+        document.getElementById('prevButton').addEventListener('click', () => {
+            currentIndex = (currentIndex - 2 + images.length) % images.length;
+            updateImages();
+        });
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            if (currentIndex === 4) {
+                window.location.href = 'page3.html';
+            } else {
+                currentIndex = (currentIndex + 2) % images.length;
+                updateImages();
+            }
+        });
+
+        updateImages();
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page4</title>
+    <style>
+        body {
+            background-color: #FFEBF0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {  
+            margin-top: 20px;
+        }
+        button {
+            background-color: #FFB6C1;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #FF69B4;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        .input-container input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 300px;
+        }
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+        .fireworks img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            .input-container input {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; align-items: center;">
+            <h3>Her name is ... </h3>
+        </div>
+        <div class="input-container">
+            <input type="text" id="nameInput" placeholder="Enter her name...">
+        </div>
+        <div class="buttons">
+            <button id="submitButton">
+                <img src="./images_for_website/paw_1152756.png" style="width: 20px; height: 20px; border: none; vertical-align: middle; margin-right: 8px;"/>
+                Check answer
+            </button>
+        </div>
+        <div id="resultImageContainer"></div>
+    </div>
+    <div class="fireworks" id="fireworks">
+        <img src="./images_for_website/fireworks.gif" alt="Fireworks">
+    </div>
+</body>
+</html>
+<script>
+    const correctName = "munmun";
+    const wrongImages = [
+        "./images_for_website/trump.gif",
+        "./images_for_website/serious_boss_baby.gif",
+        "./images_for_website/temp.gif"
+    ];
+    let wrongAttempts = 0;
+
+    document.getElementById('submitButton').addEventListener('click', () => {
+        const inputName = document.getElementById('nameInput').value.toLowerCase();
+        const resultImageContainer = document.getElementById('resultImageContainer');
+        resultImageContainer.innerHTML = '';
+
+        if (inputName === correctName) {
+            const img = document.createElement('img');
+            img.src = "./images_for_website/minion.gif";
+            const textBox = document.createElement('div');
+            textBox.innerText = "Correct!";
+            resultImageContainer.appendChild(textBox);
+            resultImageContainer.appendChild(img);
+            showFireworks();
+        } else {
+            wrongAttempts++;
+            const img = document.createElement('img');
+            img.src = wrongImages[wrongAttempts % 3];
+            const textBox = document.createElement('div');
+            textBox.innerText = "Wrong!";
+            resultImageContainer.appendChild(textBox);
+            resultImageContainer.appendChild(img);
+        }
+    });
+
+    function showFireworks() {
+        const fireworks = document.getElementById('fireworks');
+        fireworks.style.display = 'flex';
+        setTimeout(() => {
+            fireworks.style.display = 'none';
+            showNextButton();
+        }, 2000);
+    }
+
+    function showNextButton() {
+        const nextButton = document.createElement('button');
+        nextButton.innerText = "Next";
+        nextButton.onclick = () => {
+            window.location.href = 'page5.html';
+        };
+        document.body.appendChild(nextButton);
+    }
+</script>
